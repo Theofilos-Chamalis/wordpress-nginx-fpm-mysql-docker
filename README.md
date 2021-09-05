@@ -6,11 +6,17 @@ A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL usi
 
 ```bash
 # clone repository
-https://github.com/Theofilos-Chamalis/DevConnector.git
+https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker.git
 
-# Install dependencies
-cd devConnector && npm run install-all
+# Run the setup file
+cd wordpress-nginx-fpm-mysql-docker && chmod +x setup.sh && ./setup.sh
 
-# Enter your development & production MongoDB URI & JWT key
-Directory: config/
+# SSL Auto Renewal crontab (Optional)
+sudo crontab -e
+0 12 * * * /home/your-username/wordpress-nginx-fpm-mysql-docker/ssl_renew.sh >> /var/log/cron.log 2>&1
 ```
+## Override auto-configuration
+If you require to use your own configuration for the project, feel free to edit the following files:
+1. ~/wordpress-nginx-fpm-mysql-docker/docker-compose.yml --> <b>YOUR-EMAIL</b> , <b>YOUR-DOMAIN</b>
+2. ~/wordpress-nginx-fpm-mysql-docker/ssl_renew.sh --> <b>YOUR-CURRENT_PATH</b>
+3. ~/wordpress-nginx-fpm-mysql-docker/nginx-conf/nginx.conf --> <b>YOUR-DOMAIN</b>
