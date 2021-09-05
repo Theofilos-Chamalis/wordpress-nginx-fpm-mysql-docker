@@ -87,12 +87,6 @@ echo "Enter your email:"
 read EMAIL
 
 echo ""
-echo "Retrieving current path..."
-
-CURRENT_PATH="$(realpath .)"
-
-echo "Done ✓"
-echo ""
 echo "Enter your desired MYSQL_ROOT_PASSWORD:"
 
 read MYSQL_ROOT_PASSWORD
@@ -114,7 +108,6 @@ echo "Please confirm that your project variables are valid to continue"
 echo ""
 echo "Domain Name: $DNAME"
 echo "Email: $EMAIL"
-echo "Current Path: $CURRENT_PATH"
 echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
 echo "MYSQL_USER: $MYSQL_USER"
 echo "MYSQL_PASSWORD: $MYSQL_PASSWORD"
@@ -130,11 +123,12 @@ esac
 sed -i "s/YOUR-DOMAIN/$DNAME/g" ./nginx-conf/nginx.conf
 sed -i "s/YOUR-DOMAIN/$DNAME/g" docker-compose.yml
 sed -i "s/YOUR-EMAIL/$EMAIL/g" docker-compose.yml
-sed -i "s/YOUR-CURRENT-PATH/$CURRENT_PATH/g" ssl_renew.sh
 touch .env
 echo "MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD" >> .env
 echo "MYSQL_USER=$MYSQL_USER" >> .env
 echo "MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD" >> .env
+chmod +x ssl_renew.sh
+docker-compose up -d
 
 echo ""
 echo "Done ✓"
