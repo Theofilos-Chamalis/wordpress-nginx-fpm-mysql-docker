@@ -1,1 +1,3 @@
+# Ignore setup files that are used in development or production
 .env
+*.swp

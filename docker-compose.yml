@@ -55,7 +55,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email theofxam@gmail.com --agree-tos --no-eff-email --force-renewal -d wordpress.evoptt.com
+    command: certonly --webroot --webroot-path=/var/www/html --email YOUR-EMAIL --agree-tos --no-eff-email --force-renewal -d YOUR-DOMAIN
 
 volumes:
   certbot-etc:
