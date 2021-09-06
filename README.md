@@ -43,5 +43,6 @@ If you require to use your own configuration for the project, feel free to edit 
 ## Troubleshooting issues with certbot
 If running `docker ps -a` returns an **Exited (1)** status for certbot container and the webserver/nginx container is not running, you could perform the following actions:
 1. `docker-compose down && docker-compose up --force-recreate --no-deps certbot` to restart the SSL certificate generation process
-2. `docker-compose logs certbot` to list out the certbot issue and find for a resolution online
-3. Once the issue is resolved, running `docker-compose down && docker-compose up -d` would bring everything back online
+2. Run `docker-compose logs certbot` to list out the certbot issue and find for a resolution online
+3. Use the sample nginx configurations (dev, prod) in  ~/wordpress-nginx-fpm-mysql-docker/nginx-conf by renaming them to nginx.conf and then running `docker-compose up -d`
+4. Once the issue is resolved, running `docker-compose down && docker-compose up -d` would bring everything back online
