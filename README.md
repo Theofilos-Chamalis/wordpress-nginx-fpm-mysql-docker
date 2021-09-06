@@ -16,6 +16,12 @@ cd wordpress-nginx-fpm-mysql-docker && ./setup.sh
 sudo crontab -e
 0 12 * * * /home/your-username/wordpress-nginx-fpm-mysql-docker/ssl_renew.sh >> /var/log/cron.log 2>&1
 ```
+## Managing the docker containers
+- `docker ps -a` (Check all containers statuses)
+- `docker compose restart` (Restart all containers)
+- `docker compose down` (Stop all containers)
+- `docker compose up -d` (Start all containers in detached/background mode)
+
 ## Override auto-configuration
 If you require to use your own configuration for the project, feel free to edit the following files:
 1. ~/wordpress-nginx-fpm-mysql-docker/docker-compose.yml --> <b>YOUR-EMAIL</b> , <b>YOUR-DOMAIN</b>
