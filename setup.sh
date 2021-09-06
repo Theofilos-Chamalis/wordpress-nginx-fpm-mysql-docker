@@ -120,10 +120,15 @@ case "$choice" in
   * ) echo "Invalid input! Aborting now...";;
 esac
 
+echo ""
+echo "This might take a while..."
+echo ""
+
 sed -i "s/YOUR-DOMAIN/$DNAME/g" ./nginx-conf/nginx.conf
 sed -i "s/YOUR-DOMAIN/$DNAME/g" ./nginx-conf/nginx.conf.prod
 sed -i "s/YOUR-DOMAIN/$DNAME/g" docker-compose.yml
 sed -i "s/YOUR-EMAIL/$EMAIL/g" docker-compose.yml
+rm -rf .env
 touch .env
 echo "MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD" >> .env
 echo "MYSQL_USER=$MYSQL_USER" >> .env
