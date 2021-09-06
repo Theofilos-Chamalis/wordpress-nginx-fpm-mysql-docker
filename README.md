@@ -1,5 +1,17 @@
 # Wordpress Nginx FPM MySQL Docker
 
+<p align="center">
+    <img src="docker-wordpress.png" alt="Docker Wordpress" width="500">
+<p>
+
+<p align="center">
+    <a href="https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker/discussions"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=for-the-badge" alt="Join our Community"></a>
+    <a href="https://github.com/users/Theofilos-Chamalis/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=for-the-badge" alt="Become a Sponsor"></a>
+    <a href="https://www.paypal.com/paypalme/TChamalis"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=for-the-badge" alt="One-time Donation"></a>
+    <br>
+    <a href="https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/docker-mumble?style=flat-square" alt="License"></a>
+</p>
+
 A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL using docker compose. The purpose of this repo is to get you started with a modern, performant, reusable and secure way to start a Wordpress website. This repo is based on DO's instructions presented here: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose, 
 using a more up to date configuration and easy to set up process.
 
