@@ -121,6 +121,7 @@ case "$choice" in
 esac
 
 sed -i "s/YOUR-DOMAIN/$DNAME/g" ./nginx-conf/nginx.conf
+sed -i "s/YOUR-DOMAIN/$DNAME/g" ./nginx-conf/nginx.conf.prod
 sed -i "s/YOUR-DOMAIN/$DNAME/g" docker-compose.yml
 sed -i "s/YOUR-EMAIL/$EMAIL/g" docker-compose.yml
 touch .env
@@ -128,6 +129,13 @@ echo "MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD" >> .env
 echo "MYSQL_USER=$MYSQL_USER" >> .env
 echo "MYSQL_PASSWORD=$MYSQL_PASSWORD" >> .env
 chmod +x ssl_renew.sh
+docker-compose up -d
+sleep 10
+docker-compose down
+sleep 3
+mv ./nginx-conf/nginx.conf ./nginx-conf/nginx.conf.dev
+cp ./nginx-conf/nginx.conf.prod ./nginx-conf/nginx.conf
+sleep 2
 docker-compose up -d
 
 echo ""
