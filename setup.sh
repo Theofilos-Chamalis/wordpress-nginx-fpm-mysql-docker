@@ -25,7 +25,7 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt install docker-ce
+sudo apt install -y docker-ce
 
 echo ""
 echo "Done ✓"
@@ -126,7 +126,7 @@ sed -i "s/YOUR-EMAIL/$EMAIL/g" docker-compose.yml
 touch .env
 echo "MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD" >> .env
 echo "MYSQL_USER=$MYSQL_USER" >> .env
-echo "MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD" >> .env
+echo "MYSQL_PASSWORD=$MYSQL_PASSWORD" >> .env
 chmod +x ssl_renew.sh
 docker-compose up -d
 
