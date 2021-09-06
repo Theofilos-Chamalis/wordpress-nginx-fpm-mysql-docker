@@ -10,7 +10,7 @@ using a more up to date configuration and easy to set up process.
 https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker.git
 
 # Run the setup file
-cd wordpress-nginx-fpm-mysql-docker && chmod +x setup.sh && ./setup.sh
+cd wordpress-nginx-fpm-mysql-docker && ./setup.sh
 
 # SSL Auto Renewal crontab (Optional)
 sudo crontab -e
