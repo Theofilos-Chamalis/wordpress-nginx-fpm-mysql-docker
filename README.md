@@ -1,4 +1,4 @@
-# Wordpress + Nginx + FPM + MySQL + Docker
+# Wordpress + Nginx + FPM + MySQL + Docker Boilerplate
 
 <p align="center">
     <img src="docker-wordpress.png" alt="Docker Wordpress" width="500">
