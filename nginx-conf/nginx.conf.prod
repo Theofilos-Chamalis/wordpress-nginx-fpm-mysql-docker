@@ -3,6 +3,8 @@ server
   listen 80;
   listen [::]:80;
 
+  client_max_body_size 200M;
+
   server_name YOUR-DOMAIN;
 
   location ~ /.well-known/acme-challenge
@@ -14,6 +16,7 @@ server
   location /
   {
     rewrite ^ https://$host$request_uri? permanent;
+    client_max_body_size 200M;
   }
 }
 
@@ -26,6 +29,8 @@ server
   index index.php index.html index.htm;
 
   root /var/www/html;
+  
+  client_max_body_size 200M;
 
   server_tokens off;
 
@@ -45,6 +50,7 @@ server
   location /
   {
     try_files $uri $uri/ /index.php$is_args$args;
+    client_max_body_size 200M;
   }
 
   location ~ \.php$
@@ -56,6 +62,7 @@ server
     include fastcgi_params;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     fastcgi_param PATH_INFO $fastcgi_path_info;
+    client_max_body_size 200M;
   }
 
   location ~ /\.ht
@@ -75,5 +82,6 @@ server
   {
     expires max;
     log_not_found off;
+    client_max_body_size 200M;
   }
 }
