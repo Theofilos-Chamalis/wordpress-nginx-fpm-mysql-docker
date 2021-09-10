@@ -39,6 +39,60 @@ server
 
   include /etc/nginx/conf.d/options-ssl-nginx.conf;
 
+  # enables GZIP compression
+  gzip on; 
+
+  # compression level (1-9)
+  # 6 is a good compromise between CPU usage and file size
+  gzip_comp_level 6;
+
+  # minimum file size limit in bytes to avoid negative compression outcomes
+  gzip_min_length 256;
+
+  # compress data for clients connecting via proxies
+  gzip_proxied any;
+
+  # directs proxies to cache both the regular and GZIP versions of an asset
+  gzip_vary on;
+
+  # disables GZIP compression for ancient browsers that don't support it
+  gzip_disable "msie6";
+
+  # compress outputs labeled with the following file extensions or MIME-types
+  # text/html MIME-type is enabled by default and need not be included
+  gzip_types
+  application/atom+xml
+  application/geo+json
+  application/javascript
+  application/x-javascript
+  application/json
+  application/ld+json
+  application/manifest+json
+  application/rdf+xml
+  application/rss+xml
+  application/vnd.ms-fontobject
+  application/wasm
+  application/x-web-app-manifest+json
+  application/xhtml+xml
+  application/xml
+  font/eot
+  font/otf
+  font/ttf
+  image/bmp
+  image/svg+xml
+  text/cache-manifest
+  text/calendar
+  text/css
+  text/javascript
+  text/markdown
+  text/plain
+  text/xml
+  text/vcard
+  text/vnd.rim.location.xloc
+  text/vtt
+  text/x-component
+  text/x-cross-domain-policy;
+
   add_header X-Frame-Options "SAMEORIGIN" always;
   add_header X-XSS-Protection "1; mode=block" always;
   add_header X-Content-Type-Options "nosniff" always;
