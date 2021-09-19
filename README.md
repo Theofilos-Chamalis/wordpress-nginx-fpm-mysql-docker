@@ -12,11 +12,7 @@
     <a href="https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/docker-mumble?style=flat-square" alt="License"></a>
 </p>
 
-A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL/MariaDB using docker compose and 200MB file upload limit. The purpose of this
-repo is to get you started with a modern, performant, reusable and secure way to start a Wordpress website in 5 minutes! This repo is
-based on DO's instructions presented
-here: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose, using a more up to
-date configuration and easy to set up process.
+A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL/MariaDB using docker compose with Alpine Linux based docker images. The purpose of this repo is to get you started with a modern, reusable, secure way to start a Wordpress website in 5 minutes! Special considerations have been made towards the performance tuning and memory requirements of it, making it possible to work even on low end machines with 1CPU core and 1GB Ram. This repo is based on DO's instructions presented here: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose, using a more up to date configuration and easy to set up process.
 
 ## Quick Start
 
