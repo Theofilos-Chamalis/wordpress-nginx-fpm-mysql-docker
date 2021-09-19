@@ -1,4 +1,4 @@
-# Wordpress + Nginx + FPM + MySQL + Docker Boilerplate
+# Wordpress + Nginx + FPM + MySQL/MariaDB + Docker Boilerplate
 
 <p align="center">
     <img src="docker-wordpress.png" alt="Docker Wordpress" width="500">
@@ -12,7 +12,7 @@
     <a href="https://github.com/Theofilos-Chamalis/wordpress-nginx-fpm-mysql-docker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/PHLAK/docker-mumble?style=flat-square" alt="License"></a>
 </p>
 
-A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL using docker compose and 200MB file upload limit. The purpose of this
+A setup boilerplate to quickly bootstrap Wordpress + Nginx + PHP-FPM + MySQL/MariaDB using docker compose and 200MB file upload limit. The purpose of this
 repo is to get you started with a modern, performant, reusable and secure way to start a Wordpress website in 5 minutes! This repo is
 based on DO's instructions presented
 here: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose, using a more up to
@@ -47,7 +47,7 @@ If you require to use your own configuration for the project, feel free to edit 
 2. ~/wordpress-nginx-fpm-mysql-docker/ssl_renew.sh --> <b>YOUR-CURRENT_PATH</b>
 3. ~/wordpress-nginx-fpm-mysql-docker/nginx-conf/nginx.conf --> <b>YOUR-DOMAIN</b>
 
-## Troubleshooting issues with SSL generation / Certbot
+## Troubleshooting issues
 
 If running `docker ps -a` returns an **Exited (1)** status for certbot container and the webserver/nginx container is
 not running, you could perform the following actions:
@@ -58,3 +58,8 @@ not running, you could perform the following actions:
 3. Use the sample nginx configurations (dev, prod) in  ~/wordpress-nginx-fpm-mysql-docker/nginx-conf by renaming them to
    nginx.conf and then running `docker-compose up -d`
 4. Once the issue is resolved, running `docker-compose down && docker-compose up -d` would bring everything back online
+
+If you see sudo access errors inside the docker containers while running the setup.sh script, then:
+
+1. Run `sudo usermod -aG docker ${USER}` to give the docker user sudo access manually
+2. Run `sudo reboot` to perform a restart on your machine
