@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: mysql:8.0
+    image: yobasystems/alpine-mariadb
     container_name: db
     restart: unless-stopped
     env_file: .env
