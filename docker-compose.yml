@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: yobasystems/alpine-mariadb
+    image: linuxserver/mariadb:10.5.13-alpine
     container_name: db
     restart: unless-stopped
     env_file: .env
