@@ -1,23 +1,29 @@
-version: "3.8"
+version: "3.9"
 
 services:
   db:
-    image: yobasystems/alpine-mariadb
+    image: linuxserver/mariadb:10.5.13-alpine
     container_name: db
     restart: unless-stopped
     env_file: .env
     environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
       - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
     volumes:
-      - dbdata:/var/lib/mysql
-    command: "--default-authentication-plugin=mysql_native_password"
+      - dbdata:/config
+    ports:
+      - 3306:3306
     networks:
       - app-network
 
   wordpress:
     depends_on:
       - db
-    image: wordpress:5-php8.0-fpm-alpine
+    image: wordpress:php8.0-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     env_file: .env
